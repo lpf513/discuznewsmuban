@@ -1,0 +1,170 @@
+<!--{template common/header}-->
+<!--{eval require_once(DISCUZ_ROOT.'./template/bygsjw_1/php/portal_index.php');}-->
+<style id="diy_style" type="text/css"></style>
+
+<div data-byginto class="portal_index_t">
+	<!--[diy=diy_t1]--><div id="diy_t1" class="area"></div><!--[/diy]-->
+	<!--{if $forum_an}-->
+	<div class="portal_an cl">
+		<img src="{$_G['style']['styleimgdir']}/announcement.gif" alt="公告">
+		<ul class="portal_an_ul z">
+		<!--{loop $forum_an $f_a}-->
+			<li class="cl">
+			<!--{if $f_a[type] == '1'}-->
+			<a href="{$f_a[message]}" target="_blank" class="over_one">{$f_a[subject]}</a>
+			<!--{else}-->
+			<a href="forum.php?mod=announcement&id={$f_a[id]}" target="_blank" class="over_one">{$f_a[subject]}</a>
+			<!--{/if}-->
+			<em>(<!--{echo date("Y-m-d",$f_a[starttime])}-->)</em>
+			</li>
+		<!--{/loop}-->
+		</ul>
+		<a href="forum.php?mod=announcement" target="_blank" class="an_all">全部公告&#62;&#62;</a>
+	</div>
+	<!--{/if}-->
+	<!--[diy=diy_t2]--><div id="diy_t2" class="area"></div><!--[/diy]-->
+</div>
+
+<div class="portal_diy cl">
+	<div data-byginto class="portal_diy_top cl">
+		<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+		<!--{if $portal_nav_img1_param || $portal_nav_img2_param || $portal_nav_img3_param || $portal_nav_img4_param || $portal_nav_img5_param || $portal_nav_img6_param || $portal_nav_img7_param || $portal_nav_img8_param || $portal_nav_img9_param}-->
+			<!--{eval}-->
+				$p_n_img1 = unserialize($portal_nav_img1_param);
+				$p_n_img2 = unserialize($portal_nav_img2_param);
+				$p_n_img3 = unserialize($portal_nav_img3_param);
+				$p_n_img4 = unserialize($portal_nav_img4_param);
+				$p_n_img5 = unserialize($portal_nav_img5_param);
+				$p_n_img6 = unserialize($portal_nav_img6_param);
+				$p_n_img7 = unserialize($portal_nav_img7_param);
+				$p_n_img8 = unserialize($portal_nav_img8_param);
+				$p_n_img9 = unserialize($portal_nav_img9_param);
+			<!--{/eval}-->
+			<div class="portal_z_x">
+				<div class="portal_diy_nav">
+					<ul class="cl">
+						<!--{if $portal_nav_img1_param}-->
+						<li>
+							<a href="{$p_n_img1['url']}" target="{$p_n_img1['atarget']}">
+								<img src="{$p_n_img1['pic']}" alt="{$p_n_img1['text']}"/>
+								<p>{$p_n_img1['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+						<!--{if $portal_nav_img2_param}-->
+						<li>
+							<a href="{$p_n_img2['url']}" target="{$p_n_img2['atarget']}">
+								<img src="{$p_n_img2['pic']}" alt="{$p_n_img2['text']}"/>
+								<p>{$p_n_img2['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+						<!--{if $portal_nav_img3_param}-->
+						<li>
+							<a href="{$p_n_img3['url']}" target="{$p_n_img3['atarget']}">
+								<img src="{$p_n_img3['pic']}" alt="{$p_n_img3['text']}"/>
+								<p>{$p_n_img3['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+						<!--{if $portal_nav_img4_param}-->
+						<li>
+							<a href="{$p_n_img4['url']}" target="{$p_n_img4['atarget']}">
+								<img src="{$p_n_img4['pic']}" alt="{$p_n_img4['text']}"/>
+								<p>{$p_n_img4['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+						<!--{if $portal_nav_img5_param}-->
+						<li>
+							<a href="{$p_n_img5['url']}" target="{$p_n_img5['atarget']}">
+								<img src="{$p_n_img5['pic']}" alt="{$p_n_img5['text']}"/>
+								<p>{$p_n_img5['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+						<!--{if $portal_nav_img6_param}-->
+						<li>
+							<a href="{$p_n_img6['url']}" target="{$p_n_img6['atarget']}">
+								<img src="{$p_n_img6['pic']}" alt="{$p_n_img6['text']}"/>
+								<p>{$p_n_img6['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+						<!--{if $portal_nav_img7_param}-->
+						<li>
+							<a href="{$p_n_img7['url']}" target="{$p_n_img7['atarget']}">
+								<img src="{$p_n_img7['pic']}" alt="{$p_n_img7['text']}"/>
+								<p>{$p_n_img7['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+						<!--{if $portal_nav_img8_param}-->
+						<li>
+							<a href="{$p_n_img8['url']}" target="{$p_n_img8['atarget']}">
+								<img src="{$p_n_img8['pic']}" alt="{$p_n_img8['text']}"/>
+								<p>{$p_n_img8['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+						<!--{if $portal_nav_img9_param}-->
+						<li>
+							<a href="{$p_n_img9['url']}" target="{$p_n_img9['atarget']}">
+								<img src="{$p_n_img9['pic']}" alt="{$p_n_img9['text']}"/>
+								<p>{$p_n_img9['text']}</p>
+							</a>
+						</li>
+						<!--{/if}-->
+					</ul>
+				</div>
+			</div>
+		<!--{else}-->
+			<!--[diy=portal_z_t]--><div id="portal_z_t" class="area"></div><!--[/diy]-->
+		<!--{/if}-->
+		<!--[diy=portal_y_t]--><div id="portal_y_t" class="area"></div><!--[/diy]-->
+		<!--[diy=portal_y_gg]--><div id="portal_y_gg" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=portal_z_b]--><div id="portal_z_b" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=portal_channal1]--><div id="portal_channal1" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=diy4]--><div id="diy4" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=portal_channal2]--><div id="portal_channal2" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=diy5]--><div id="diy5" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=portal_channal3]--><div id="portal_channal3" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=diy6]--><div id="diy6" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=portal_recommend]--><div id="portal_recommend" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=diy7]--><div id="diy7" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=portal_link]--><div id="portal_link" class="area"></div><!--[/diy]-->
+	</div>
+	<div data-byginto>
+		<!--[diy=diy8]--><div id="diy8" class="area"></div><!--[/diy]-->
+	</div>
+</div>
+
+<script src="misc.php?mod=diyhelp&action=get&type=index&diy=yes&r={echo random(4)}" type="text/javascript"></script>
+
+<!--{template common/footer}-->

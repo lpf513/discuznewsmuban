@@ -1,0 +1,219 @@
+<!--{if $space[uid]}-->
+<style>
+	body{ background: #f2f2f2;}
+	.ft_xin{ margin-top: 15px;}
+	.home_forum_header_js{ background: #fff !important; opacity: 0.1 !important; border-radius: 10% !important;}
+	#uhd{ padding: 0; border-color: #eaeaea; background: #fff; border-radius: 2px;}
+	#uhd_bg{ width: 1198px; height: 200px; overflow: hidden; background: #3498db; background-color: $_G['style']['zhuti']; border-radius: 2px;}
+/* 头像 */
+	#uhd .avt{ position: relative; z-index: 20; float: none; display: block; margin: -80px 0 0 535px;}
+	#uhd .avt a{ display: inline-block; padding: 4px; background: #fff; border-radius: 50%;}
+	#uhd .avt img{ width: 120px; height: 120px; padding: 0; border: 0; border-radius: 50%;}
+/* 用户信息和管理 */
+	#uhd .h{ padding: 0 0 10px; text-align: center;}
+	#uhd .mt{ padding: 0; font-size: 22px; letter-spacing: 1px; font-weight: 400;}
+	#uhd .h a{ color: #999;}
+	#uhd .h a:hover{ color: $_G['style']['zhuti'];}
+/* 收听、好友、消息 */
+	#uhd .mn{ float: none; margin: 0; padding-bottom: 10px; text-align: center;}
+	#uhd .mn li{ display: inline-block; margin: 0 10px;}
+	#uhd .mn li a:hover{ color: $_G['style']['zhuti'];}
+/* 广播、收听、听众 */
+	#uhd .flw_hd{ float: none; margin: 0; padding: 0 0 10px 400px; width: 398px;}
+	#uhd .tns th, #uhd .tns td{ padding-left: 0; text-align: center;}
+/* 导航 */
+	.byg_home_nav{ margin-bottom: 10px; border: 1px solid #eaeaea; border-top: 0; background: #fff;}
+	.byg_home_nav .tb{ margin: 0; padding: 0; border: 0; height: 50px; line-height: 52px; text-align: center; overflow: hidden;}
+	.byg_home_nav .tb li{ float: none; margin: 0 20px; display: inline-block;}
+	.byg_home_nav .tb a{ padding: 0; border: 0; background: #fff; font-size: 16px; color: #999;}
+	.byg_home_nav .tb a:hover{ color: $_G['style']['zhuti'];}
+	.byg_home_nav .tb .a a{ position: relative; font-weight: 400; color: $_G['style']['zhuti'];}
+	.byg_home_nav .tb .a a:after{ content: "."; position: absolute; top: 46px; left: 0; display: block; width: 100%; height: 4px; line-height: 10px; background: $_G['style']['zhuti']; color: $_G['style']['zhuti']; border-radius: 1px;}
+/* 个人资料和公共 */
+	#ct.ct1{ border: 1px solid #eaeaea; line-height: 1.8; font-size: 14px; background: #fff;}
+	#ct.ct1 h2{ font-size: 15px;}
+	#ct.ct1 em{ color: #a8a8a8;}
+/* 留言板 */
+	#ct.ct1 .tedt{ width: 99.8%;}
+/* 分享 */
+	#ct.ct1 .tbmu{ padding: 10px 0; border-bottom: 1px solid #eee; color: #999;}
+	#ct.ct1 .tbmu a{ margin: 0 5px;}
+/* 记录 */
+	#ct.ct1 #moodfm textarea{ width: 1104px;}
+	#ct.ct1 .moodfm_btn{ padding-left: 10px; background: transparent;}
+	#ct.ct1 .moodfm_btn button{ height: 62px; opacity: 1; font-size: 16px;}
+/* 相册 */
+	#ct.ct1 .tbmu a.pnc{ margin: 0; border-color: #fff; background-color: $_G['style']['zhuti'];}
+	#ct.ct1 .mla li, #ct.ct1 .mlp li{ width: 158px;}
+/* 主题 */
+	#ct.ct1 .tl .th{ background: #f9f9f9; font-size: 12px;}
+	#ct.ct1 .tl th, #ct.ct1 .tl td{ padding: 10px 0;}
+/* 广播 */
+	#ct.ct1 #fastpostform{ width: 100%; margin-bottom: 10px;}
+	#ct.ct1 #fastpostsubmit{ height: 24px; background: $_G['style']['zhuti']; text-indent: 0;}
+	#ct.ct1 .flw_article h2{ font-size: 16px; font-weight: 700;}
+	#ct.ct1 .flw_article .c{ color: #999;}
+	#ct.ct1 .flw_article a:hover{ color: $_G['style']['zhuti'] !important;}
+</style>
+
+<!--{if $_GET['do'] == 'friend' && $_GET['view'] == 'me' && $_GET['from'] == 'space'}-->
+<script type="text/javascript">
+	window.onload = function(){
+		document.getElementsByTagName("footer")[0].style.width = document.body.clientWidth + "px";
+		document.getElementsByTagName("footer")[0].style.marginLeft = "-" + (document.body.clientWidth - 1200) / 2 + "px";
+	}
+</script>
+<!--{/if}-->
+
+<div id="uhd">
+	<div id="uhd_bg"></div>
+	<div class="icn avt"><a href="home.php?mod=space&uid=$space[uid]"><!--{avatar($space[uid],big)}--></a></div>
+	<div class="h cl">
+		<h2 class="mt">
+			{$space[username]}
+			<!--{if isset($flag[$_G['uid']])}-->
+			<span class="xs1 xg1 xw0">
+				<span id="followbkame_{$uid}"><!--{if $flag[$_G['uid']]['bkname']}-->$flag[$_G['uid']]['bkname']<!--{/if}--></span>
+				<a href="home.php?mod=spacecp&ac=follow&op=bkname&fuid=$uid&handlekey=followbkame_$uid" id="fbkname_{$uid}" onclick="showWindow('followbkame_{$uid}', this.href, 'get', 0);"><!--{if $flag[$_G['uid']]['bkname']}-->[{lang follow_mod_bkname}]<!--{else}-->[{lang follow_add_bkname}]<!--{/if}--></a>
+			</span>
+			<!--{/if}-->
+		</h2>
+		<p>
+			<a href="{$_G[siteurl]}?$uid" class="">{$_G[siteurl]}?$uid</a>
+			<!--{if checkperm('allowbanuser') || checkperm('allowedituser') || $_G[adminid] == 1}-->
+				<span class="pipe">|</span>
+					<!--{if checkperm('allowbanuser') || checkperm('allowedituser')}-->
+							<!--{if checkperm('allowbanuser')}-->
+							<a href="{if $_G[adminid] == 1}admin.php?action=members&operation=ban&username=$encodeusername&frames=yes{else}forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]{/if}" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">{lang member_manage}</a>
+							<!--{else}-->
+							<a href="{if $_G[adminid] == 1}admin.php?action=members&operation=search&username=$encodeusername&submit=yes&frames=yes{else}forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]{/if}" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">{lang member_manage}</a>
+							<!--{/if}-->
+					<!--{/if}-->
+					
+					<!--{if $_G[adminid] == 1}-->
+						<a href="forum.php?mod=modcp&action=thread&op=post&do=search&searchsubmit=1&users=$encodeusername" id="umanageli" onmouseover="showMenu(this.id)" class="showmenu">{lang content_manage}</a>
+					<!--{/if}-->
+				<!--{if checkperm('allowbanuser') || checkperm('allowedituser')}-->
+				<ul id="usermanageli_menu" class="p_pop" style="width: 80px; display:none;">
+					<!--{if checkperm('allowbanuser')}-->
+						<li><a href="{if $_G[adminid] == 1}admin.php?action=members&operation=ban&username=$encodeusername&frames=yes{else}forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]{/if}" target="_blank">{lang user_ban}</a></li>
+					<!--{/if}-->
+					<!--{if checkperm('allowedituser')}-->
+						<li><a href="{if $_G[adminid] == 1}admin.php?action=members&operation=search&username=$encodeusername&submit=yes&frames=yes{else}forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]{/if}" target="_blank">{lang user_edit}</a></li>
+					<!--{/if}-->
+				</ul>
+				<!--{/if}-->
+				<!--{if $_G['adminid'] == 1}-->
+					<ul id="umanageli_menu" class="p_pop" style="width: 80px; display:none;">
+						<li><a href="forum.php?mod=modcp&action=thread&op=post&searchsubmit=1&do=search&users=$encodeusername" target="_blank">{lang manage_post}</a></li>
+						<!--{if helper_access::check_module('doing')}-->
+							<li><a href="admin.php?action=doing&searchsubmit=1&detail=1&search=true&fromumanage=1&users=$encodeusername" target="_blank">{lang manage_doing}</a></li>
+						<!--{/if}-->
+						<!--{if helper_access::check_module('blog')}-->
+							<li><a href="admin.php?action=blog&searchsubmit=1&detail=1&search=true&fromumanage=1&uid=$space[uid]" target="_blank">{lang manage_blog}</a></li>
+						<!--{/if}-->
+						<!--{if helper_access::check_module('feed')}-->
+							<li><a href="admin.php?action=feed&searchsubmit=1&detail=1&fromumanage=1&uid=$space[uid]" target="_blank">{lang manage_feed}</a></li>
+						<!--{/if}-->
+						<!--{if helper_access::check_module('album')}-->
+							<li><a href="admin.php?action=album&searchsubmit=1&detail=1&search=true&fromumanage=1&uid=$space[uid]" target="_blank">{lang manage_album}</a></li>
+							<li><a href="admin.php?action=pic&searchsubmit=1&detail=1&search=true&fromumanage=1&users=$encodeusername" target="_blank">{lang manage_pic}</a></li>
+						<!--{/if}-->
+						<!--{if helper_access::check_module('wall')}-->
+							<li><a href="admin.php?action=comment&searchsubmit=1&detail=1&fromumanage=1&authorid=$space[uid]" target="_blank">{lang manage_comment}</a></li>
+						<!--{/if}-->
+						<!--{if helper_access::check_module('share')}-->
+							<li><a href="admin.php?action=share&searchsubmit=1&detail=1&search=true&fromumanage=1&uid=$space[uid]" target="_blank">{lang manage_share}</a></li>
+						<!--{/if}-->
+						<!--{if helper_access::check_module('group')}-->
+							<li><a href="admin.php?action=threads&operation=group&searchsubmit=1&detail=1&search=true&fromumanage=1&users=$encodeusername" target="_blank">{lang manage_group_threads}</a></li>
+							<li><a href="admin.php?action=prune&searchsubmit=1&detail=1&operation=group&fromumanage=1&users=$encodeusername" target="_blank">{lang manage_group_prune}</a></li>
+						<!--{/if}-->
+					</ul>
+				<!--{/if}-->
+			<!--{/if}-->
+		</p>
+	</div>
+	<!--{if CURMODULE == 'follow'}-->
+		<!--{subtemplate home/follow_user_header}-->
+	<!--{elseif !$space[self]}-->
+	<div class="mn">
+		<ul>
+			<!--{if helper_access::check_module('follow')}-->
+			<li class="addflw">
+				<!--{if !ckfollow($space['uid'])}-->
+					<a id="followmod" onclick="showWindow(this.id, this.href, 'get', 0);" href="home.php?mod=spacecp&ac=follow&op=add&hash={FORMHASH}&fuid=$space[uid]">{lang follow_add}TA</a>
+				<!--{else}-->
+					<a id="followmod" onclick="showWindow(this.id, this.href, 'get', 0);" href="home.php?mod=spacecp&ac=follow&op=del&fuid=$space[uid]">{lang follow_del}</a>
+				<!--{/if}-->
+			</li>
+			<!--{/if}-->
+			<li class="addf">
+				<!--{if !$isfriend}-->
+				<a href="home.php?mod=spacecp&ac=friend&op=add&uid=$space[uid]&handlekey=addfriendhk_{$space[uid]}" id="a_friend_li_{$space[uid]}" onclick="showWindow(this.id, this.href, 'get', 0);" class="xi2">{lang add_friend}</a>
+				<!--{else}-->
+				<a href="home.php?mod=spacecp&ac=friend&op=ignore&uid=$space[uid]&handlekey=ignorefriendhk_{$space[uid]}" id="a_ignore_{$space[uid]}" onclick="showWindow(this.id, this.href, 'get', 0);" class="xi2">{lang ignore_friend}</a>
+				<!--{/if}-->
+			</li>
+			<li class="pm2">
+				<a href="home.php?mod=spacecp&ac=pm&op=showmsg&handlekey=showmsg_$space[uid]&touid=$space[uid]&pmid=0&daterange=2" id="a_sendpm_$space[uid]" onclick="showWindow('showMsgBox', this.href, 'get', 0)" title="{lang send_pm}">{lang send_pm}</a>
+			</li>
+		</ul>
+		<!--{if helper_access::check_module('follow')}-->
+		<script type="text/javascript">
+		function succeedhandle_followmod(url, msg, values) {
+			var fObj = $('followmod');
+			if(values['type'] == 'add') {
+				fObj.innerHTML = '{lang follow_del}';
+				fObj.href = 'home.php?mod=spacecp&ac=follow&op=del&fuid='+values['fuid'];
+			} else if(values['type'] == 'del') {
+				fObj.innerHTML = '{lang follow_add}TA';
+				fObj.href = 'home.php?mod=spacecp&ac=follow&op=add&hash={FORMHASH}&fuid='+values['fuid'];
+			}
+		}
+		</script>
+		<!--{/if}-->
+	</div>
+	<!--{/if}-->
+</div>
+<div class="byg_home_nav">
+	<!--{hook/space_menu_extra}-->
+	<ul class="tb cl">
+		<!--{if helper_access::check_module('follow')}-->
+		<li{if CURMODULE == 'follow'} class="a"{/if}><a href="home.php?mod=follow&uid=$space[uid]&do=view&from=space">{lang follow}</a></li>
+		<!--{/if}-->
+		<li{if $do=='thread'} class="a"{/if}><a href="home.php?mod=space&uid=$space[uid]&do=thread&view=me&from=space">{lang topic}</a></li>
+		<!--{if helper_access::check_module('blog')}-->
+		<li{if $do=='blog'} class="a"{/if}><a href="home.php?mod=space&uid=$space[uid]&do=blog&view=me&from=space">{lang blog}</a></li>
+		<!--{/if}-->
+		<!--{if helper_access::check_module('album')}-->
+		<li{if $do=='album'} class="a"{/if}><a href="home.php?mod=space&uid=$space[uid]&do=album&view=me&from=space">{lang album}</a></li>
+		<!--{/if}-->
+		<!--{if helper_access::check_module('doing')}-->
+		<li{if $do=='doing'} class="a"{/if}><a href="home.php?mod=space&uid=$space[uid]&do=doing&view=me&from=space">{lang doing}</a></li>
+		<!--{/if}-->
+		<!--{if helper_access::check_module('home')}-->
+		<li{if $do=='home'} class="a"{/if}><a href="home.php?mod=space&uid=$space[uid]&do=home&view=me&from=space">{lang feed}</a></li>
+		<!--{/if}-->
+		<!--{if helper_access::check_module('share')}-->
+		<li{if $do=='share'} class="a"{/if}><a href="home.php?mod=space&uid=$space[uid]&do=share&view=me&from=space">{lang share}</a></li>
+		<!--{/if}-->
+		<!--{if helper_access::check_module('wall')}-->
+		<li{if $do==wall} class="a"{/if}><a href="home.php?mod=space&uid=$space[uid]&do=wall&from=space">{lang message}</a></li>
+		<!--{/if}-->
+		<li{if $do==profile} class="a"{/if}><a href="home.php?mod=space&uid=$space[uid]&do=profile&from=space">{lang memcp_profile}</a></li>
+	</ul>
+</div>
+<script type="text/javascript" src="{$_G['style']['styleimgdir']}/js/jquery.min.js"></script>
+<script type="text/javascript" src="{$_G['style']['styleimgdir']}/js/home_forum_header.js"></script>
+<script type="text/javascript">
+	var jq = jQuery.noConflict();
+	jQuery.firefly({
+	  minPixel: 10,
+	  maxPixel: 100,
+	  total : 15,
+	  on: '#uhd_bg',
+	  namespace: 'home_forum_header_js'
+	});
+</script>
+<!--{/if}-->

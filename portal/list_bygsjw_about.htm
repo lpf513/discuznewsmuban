@@ -1,0 +1,68 @@
+<!--{template common/header}-->
+<!--[name]简约设计-【关于我们】[/name]-->
+
+<style id="diy_style" type="text/css"></style>
+<style type="text/css">
+	body{ background: #fff;}
+	.bygsjw_about{ margin-top: 60px; text-align: center;}
+	.bygsjw_about .animated{ margin-bottom: 100px; padding-bottom: 100px; border-bottom: 1px solid #eee;}
+	.bygsjw_about #bygsjw3{ padding: 0; border: 0;}
+	.bygsjw_about .frame .title .titletext{ float: none;}
+	.about_introduce, .about_vision{ padding: 30px 0; background: #fafafa;}
+	div.about_introduce, div.about_vision, dl.about_contact, div.about_join{ background: linear-gradient( 45deg, #f7f7f7 0, #f7f7f7 25%, transparent 25%, transparent 50%, #f7f7f7 50%, #f7f7f7 75%, transparent 75%, transparent ); background-size: 5px 5px; border-radius: 10px;}
+	.about_introduce p{ font-size: 16px; line-height: 2; color: #555;}
+	.about_vision .z{ width: 399px; line-height: 50px; padding: 0 100px; font-size: 24px;}
+	.about_vision .y{ width: 519px; padding: 10px 40px; border-left: 1px solid #eaeaea;}
+	.about_vision .y p{ font-size: 14px; line-height: 2;}
+	.about_vision .y p:first-child{ font-size: 18px;}
+	#bygsjw2 img{ border-radius: 10px;}
+	.about_contact{ padding-top: 10px; background: #fafafa; text-align: left; text-indent: 18px; line-height: 30px; font-size: 16px;}
+	.about_contact dt{ font-weight: 700; color: #666;}
+	.about_contact dd{ color: #888; margin-bottom: 10px; padding-bottom: 9px; border-bottom: 1px dashed #eee;}
+	.about_contact dd:last-child{ border: 0;}
+	.about_join{ padding: 30px 0; background: #fafafa;}
+	.about_join .z{ width: 280px; padding: 50px; font-size: 20px; font-weight: 700; color: #555;}
+	.about_join .y{ width: 699px; line-height: 2; padding: 0 50px; border-left: 1px solid #eaeaea; text-align: left; font-size: 16px;}
+	.about_join .y dt{ margin-top: 10px; padding-top: 10px; border-top: 1px dashed #eee; font-weight: 700; color: #666;}
+	.about_join .y dt:first-child{ margin: 0; padding: 0; border: 0;}
+	.about_join .y dd{ color: #888;}
+	
+	.scroll_arrow{ display: inline-block; margin-top: 50px; width: 50px; height: 50px; background: url({$_G['style']['styleimgdir']}/scroll_down.png) no-repeat center; border-radius: 50%;}
+	.scroll_arrow:hover{ box-shadow: 0 5px 10px #aaa;}
+	.arrow_up.scroll_arrow{ background-image: url({$_G['style']['styleimgdir']}/scroll_up.png);}
+	.animated { -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
+	.bounce { -webkit-animation-name: bounce; animation-name: bounce; }
+	@-webkit-keyframes bounce { 0%, 0%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 40% {-webkit-transform: translateY(30px);} 60% {-webkit-transform: translateY(15px);} }
+	@keyframes bounce { 0%, 0%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(30px);} 60% {transform: translateY(15px);} }
+</style>
+
+<div class="wp bygsjw_about cl">
+	<div id="bygsjw1" class="animated">
+		<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+		<a href="#bygsjw2" class="anchor_scroll scroll_arrow" data-class-to="#bygsjw2" data-scroll-end="bounce"></a>
+	</div>
+	<div id="bygsjw2" class="animated">
+		<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+		<a href="#bygsjw3" class="anchor_scroll scroll_arrow" data-class-to="#bygsjw3" data-scroll-end="bounce"></a>
+	</div>
+	<div id="bygsjw3" class="animated">
+		<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+		<a href="#bygsjw1" class="anchor_scroll arrow_up scroll_arrow" data-class-to="#bygsjw1" data-scroll-end="bounce"></a>
+	</div>
+</div>
+
+<script type="text/javascript" src="{$_G['style']['styleimgdir']}/js/jquery1.11.0.min.js"></script>
+<script type="text/javascript" src="{$_G['style']['styleimgdir']}/js/about.min.js"></script>
+<script type="text/javascript">
+	var jq = jQuery.noConflict();
+	jQuery('.anchor_scroll').anchorScroll({
+		scrollSpeed: 800,
+		<!--{if empty($_G['setting']['disfixednv_forumindex'])}-->
+		offsetTop: 100
+		<!--{else}-->
+		offsetTop: 30
+		<!--{/if}-->
+	});
+</script>
+
+<!--{template common/footer}-->
